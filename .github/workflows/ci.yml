@@ -1,0 +1,47 @@
+name: Angular CI/CD
+
+on:
+  push:
+    branches:
+      # - main
+      - master
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        # uses: GabrielBB/xvfb-action@v1.4
+        # with:
+        run: ng test --no-watch --no-progress --code-coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build Angular app
+        run: ng build --configuration production --base-href="/angular-sandbox/"
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          # branch: gh-pages
+          # folder: dist/angular-sandbox
