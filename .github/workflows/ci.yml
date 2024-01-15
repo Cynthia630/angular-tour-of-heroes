@@ -32,10 +32,10 @@ jobs:
         # with:
         run: ng test --no-watch --no-progress --code-coverage
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      # - name: Upload coverage reports to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   env:
+      #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build Angular app
         run: ng build --configuration production --base-href="/angular-sandbox/"
@@ -43,5 +43,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          # branch: gh-pages
-          # folder: dist/angular-sandbox
+          branch: gh-pages
+          folder: dist/angular-sandbox
