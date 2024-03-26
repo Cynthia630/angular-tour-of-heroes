@@ -1,0 +1,11 @@
+<p>文件上传！</p>
+<!-- 设置了提交格式为formData -->
+<form action="xx" method="post" enctype="multipart/form-data"></form>
+
+<!-- <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)"> -->
+<!-- <input type="file" (change)="onFileSelected($event)" multiple/>    multiple用户可同时选择上传多个文件，但需要按ctrl+多个文件，然后点击上传-->
+<input type="file" (change)="onFileSelected($event)" multiple/>
+<div>{{precent}}</div>
+<span *ngFor="let item in imgList">{{item.name}}</span>
+<img style="width:200px" [src]="imgbase64"/>
+<button (click)="submit()">提交</button>

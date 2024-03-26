@@ -12,13 +12,15 @@ import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    UploadFilesComponent,
   ],
   imports: [
     BrowserModule,

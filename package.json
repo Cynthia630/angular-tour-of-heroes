@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --code-coverage --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +19,9 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "angular-in-memory-web-api": "^0.17.0",
+    "axios": "^1.6.7",
     "rxjs": "~7.8.0",
+    "tiny-crud": "^1.0.20",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
