@@ -38,21 +38,8 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,                                            //监听相关配置  //为true每次显示覆盖率
-    browsers: process.platform === 'win32' ? ['Chrome'] : ['ChromeNoSandboxHeadless'],
+    browsers: process.platform === 'win32' ? ['Chrome'] : ['ChromeHeadless'],
     singleRun: false,                                          //false为自动测试，不用每次手动ng test
-    restartOnFileChange: true,
-    customLaunchers: {
-      ChromeNoSandboxHeadless: {
-        base: 'Chrome',
-        flags: [
-          '--no-sandbox',
-          // See https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
-          '--headless',
-          '--disable-gpu',
-          // Without a remote debugging port, Google Chrome exits immediately.
-          ' --remote-debugging-port=9222',
-        ],
-      },
-    },
+    restartOnFileChange: true
   });
 };
