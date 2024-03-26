@@ -38,12 +38,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,                                            //监听相关配置  //为true每次显示覆盖率
-    browsers: ['ChromeHeadlessCustom'],
+    browsers: process.platform === 'win32' ? ['Chrome'] : ['ChromeNoSandboxHeadless'],
     singleRun: false,                                          //false为自动测试，不用每次手动ng test
     restartOnFileChange: true,
     customLaunchers: {
       ChromeNoSandboxHeadless: {
-        base: 'ChromeHeadless',
+        base: 'Chrome',
         flags: [
           '--no-sandbox',
           // See https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
