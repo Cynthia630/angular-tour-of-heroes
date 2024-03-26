@@ -39,7 +39,7 @@ jobs:
       #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build Angular app
-        run: ng build --configuration production --base-href="/angular-tour-of-heroes-practice/"
+        run: ng build --configuration production --base-href="/angular-tour-of-heroes/"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
